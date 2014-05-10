@@ -20,7 +20,12 @@ function addToList(item) {
 
     var newElem = "<li>" + item + "</li>";
 
+    newElem += "<span class='label pending'>Pending</span>";
+
     $("ol#items").append(newElem);
 
+    $('#item').val("");
+
+    $('#item').focus();
 }
 
