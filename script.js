@@ -14,13 +14,22 @@ $(document).ready(function(){
 //        alert($('#item').val());
     });
 
+    $(document).on('click', 'ol#items li', function(){
+
+        alert('list item clicked');
+
+
+    })
+
 });
 
 function addToList(item) {
 
-    var newElem = "<li>" + item + "</li>";
+    var newElem = "<li>" + item +
+        "<span class='label pending'>Pending</span>" +
+        "</li>";
 
-    newElem += "<span class='label pending'>Pending</span>";
+//    newElem += ;
 
     $("ol#items").append(newElem);
 
