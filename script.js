@@ -18,7 +18,11 @@ $(document).ready(function(){
         parent.append("<span class='label success'>Done!</span>");
 
         $(this).remove();
-    })
+
+        updateTotal();
+});
+
+//    $(document).on('click', "h1", updateTotal);
 
 });
 
@@ -33,5 +37,17 @@ function addToList(item) {
     $('#item').val("");
 
     $('#item').focus();
+
+    updateTotal();
+}
+
+function updateTotal() {
+    var pendingCount = $("span.pending").length;
+
+    var doneCount = $("span.success").length;
+
+    var message = "Pending: " + pendingCount + " Completed: " + doneCount;
+
+    $(".total").text(message);
 }
 
