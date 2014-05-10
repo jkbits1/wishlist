@@ -2,34 +2,31 @@
 
 $(document).ready(function(){
 
-
-
     $(document).on('click', "#add-to-list", function() {
 
         var item = $('#item').val();
 
         addToList(item);
-
-//        alert("hi");
-//        alert($('#item').val());
     });
 
-    $(document).on('click', 'ol#items li', function(){
+    $(document).on('click', 'span.label.pending', function(){
 
-        alert('list item clicked');
+        var parent = $(this).parent();
 
+        parent.addClass("complete");
 
+        parent.append("<span class='label success'>Done!</span>");
+
+        $(this).remove();
     })
 
 });
 
 function addToList(item) {
 
-    var newElem = "<li>" + item +
-        "<span class='label pending'>Pending</span>" +
-        "</li>";
+    var span = "<span class='label pending'>Pending</span>";
 
-//    newElem += ;
+    var newElem = "<li>" + item + span + "</li>";
 
     $("ol#items").append(newElem);
 
